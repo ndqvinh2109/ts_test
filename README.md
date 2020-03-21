@@ -37,12 +37,12 @@ map storing grouping by phone number => 0(m)
 
 ### Results
 <code>
-[main] c.t.assessment.PhoneNumberActivation     : ----------------------Running Application!----------------------<br>
-[main] c.t.assessment.util.TimeMetric           : File Splitter took 56065 ms.<br>
-[main] c.t.assessment.service.FileSplitter      : Lines processed: 50000000<br>
-[main] c.t.assessment.service.FileSplitter      : Number of temp files: 100<br>
-[main] c.t.assessment.util.TimeMetric           : File Sorter took 113127 ms.<br>
-[main] c.t.assessment.util.TimeMetric           : Phone Number Service took 80456 ms.<br>
-[main] c.t.assessment.util.TimeMetric           : Find the actual activation date took 249666 ms.<br>
-[main] c.t.assessment.PhoneNumberActivation     : ----------------------Successfully executed!--------------------<br>
+[main] c.t.assessment.PhoneNumberActivation     : ----------------------Running Application!---------------------- <br>
+[main] c.t.assessment.util.TimeMetric           : File Splitter took 56065 ms. <br>
+[main] c.t.assessment.service.FileSplitter      : Lines processed: 50000000 <br>
+[main] c.t.assessment.service.FileSplitter      : Number of temp files: 100 <br>
+[main] c.t.assessment.util.TimeMetric           : File Sorter took 113127 ms. <br>
+[main] c.t.assessment.util.TimeMetric           : Phone Number Service took 80456 ms. <br>
+[main] c.t.assessment.util.TimeMetric           : Find the actual activation date took 249666 ms. <br>
+[main] c.t.assessment.PhoneNumberActivation     : ----------------------Successfully executed!-------------------- <br>
 </code>
