@@ -81,7 +81,7 @@ public class FileSplitter {
                 Arrays.sort(buffer, new SortingPhoneNumber());
 
                 Path tempDirWithPrefix = Files.createTempDirectory("temp");
-                String tempFilename = tempDirWithPrefix.toString() + TMP_FILENAME;
+                String tempFilename = tempDirWithPrefix.toString() + File.separator + TMP_FILENAME;
 
                 File temp = Paths.get(tempFilename).toFile();
 

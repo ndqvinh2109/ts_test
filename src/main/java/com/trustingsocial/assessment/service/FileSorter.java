@@ -49,9 +49,10 @@ public class FileSorter {
      * @throws IOException
      */
     private String compareAndMerge(List<File> files) throws IOException {
+
         Path tempDirWithPrefix = Files.createTempDirectory("temp");
 
-        FileWriter fw = new FileWriter(tempDirWithPrefix.toString() + SORTED_FILENAME);
+        FileWriter fw = new FileWriter(tempDirWithPrefix.toString() + File.separator + SORTED_FILENAME);
         PrintWriter pw = new PrintWriter(fw);
 
         for (int i = 0; i < total; i++) {

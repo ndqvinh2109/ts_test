@@ -8,9 +8,11 @@ import com.trustingsocial.assessment.util.TimeMetric;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class PhoneNumberActivation {
@@ -27,12 +29,15 @@ public class PhoneNumberActivation {
             FileSplitter fileSplitter = new FileSplitter(appConfiguration);
             Map map = fileSplitter.split();
 
+            List<File> fileList = new ArrayList<>(map.values());
+
             FileSorter fileSorter = new FileSorter(appConfiguration);
-            String sortedPath = fileSorter.sort(new ArrayList<>(map.values()));
+            String sortedPath = fileSorter.sort(fileList);
 
             PhoneNumberService phoneNumberService = new PhoneNumberService(appConfiguration);
-            phoneNumberService.findActivePhoneNumber(new ArrayList<>(map.values()), sortedPath);
+            phoneNumberService.findActivePhoneNumber(fileList, sortedPath);
 
+            deleteFiles(fileList);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -43,6 +48,12 @@ public class PhoneNumberActivation {
         timeMetric.print();
         logger.info("----------------------Successfully executed!--------------------");
 
+    }
+
+    private static void deleteFiles(List<File> fileList) {
+        for (File file : fileList) {
+            file.delete();
+        }
     }
 
 }

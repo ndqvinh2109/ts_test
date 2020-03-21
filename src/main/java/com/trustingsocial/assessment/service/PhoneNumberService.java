@@ -55,7 +55,8 @@ public class PhoneNumberService {
 
         try {
 
-            Path path = Paths.get(sortedPath + SORTED_FILENAME);
+            Path path = Paths.get(sortedPath + File.separator + SORTED_FILENAME);
+
             try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
 
                 int i, j;
