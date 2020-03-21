@@ -32,7 +32,6 @@ public class PhoneNumberActivationTest {
     private AppConfiguration appConfiguration;
 
     private String testFilename = "test.txt";
-
     private String activationNumberName = "activation_number.txt";
     private Path tempDirWithPrefix;
     private Map<String, File> files;
@@ -45,7 +44,7 @@ public class PhoneNumberActivationTest {
         appConfiguration.setInput(tempDirWithPrefix.toString() + File.separator + testFilename);
         appConfiguration.setTotal(9);
         appConfiguration.setBuffer(3);
-        appConfiguration.setOutput(activationNumberName);
+        appConfiguration.setOutput(tempDirWithPrefix.toString() + File.separator + activationNumberName);
 
         fileSorter = new FileSorter(appConfiguration);
         fileSplitter = new FileSplitter(appConfiguration);
