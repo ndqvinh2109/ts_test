@@ -36,7 +36,6 @@ map storing grouping by phone number => 0(m)
 <code>ts.file.output</code>: Absolute path of output file (For example: D:/data/output.txt)<br>
 
 ### Results
-<code>
 [main] c.t.assessment.PhoneNumberActivation     : ----------------------Running Application!---------------------- <br>
 [main] c.t.assessment.util.TimeMetric           : File Splitter took 56065 ms. <br>
 [main] c.t.assessment.service.FileSplitter      : Lines processed: 50000000 <br>
@@ -45,4 +44,4 @@ map storing grouping by phone number => 0(m)
 [main] c.t.assessment.util.TimeMetric           : Phone Number Service took 80456 ms. <br>
 [main] c.t.assessment.util.TimeMetric           : Find the actual activation date took 249666 ms. <br>
 [main] c.t.assessment.PhoneNumberActivation     : ----------------------Successfully executed!-------------------- <br>
-</code>
+
