@@ -8,16 +8,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 public class FileSorter {
 
     private static final Logger logger = LoggerFactory.getLogger(FileSorter.class);
 
-    private String inputSortedFile;
     private int total;
     private PhoneNumber[] topNums;
     private BufferedReader[] brs;
+    private static final String SORTED_FILENAME = "sorted.txt";
 
     private TimeMetric timeMetric;
 
@@ -25,14 +27,15 @@ public class FileSorter {
         timeMetric = new TimeMetric("File Sorter");
     }
 
-    public void sort(List<File> files) throws IOException {
+    public String sort(List<File> files) throws IOException {
         init(files);
-        compareAndMerge(files);
+        String sortedPath = compareAndMerge(files);
         print();
+
+        return sortedPath;
     }
 
     public FileSorter(AppConfiguration appConfiguration) {
-        this.inputSortedFile = appConfiguration.getSortedFile();
         this.total = appConfiguration.getTotal();
     }
 
@@ -45,8 +48,10 @@ public class FileSorter {
      * @param files
      * @throws IOException
      */
-    private void compareAndMerge(List<File> files) throws IOException {
-        FileWriter fw = new FileWriter(inputSortedFile);
+    private String compareAndMerge(List<File> files) throws IOException {
+        Path tempDirWithPrefix = Files.createTempDirectory("temp");
+
+        FileWriter fw = new FileWriter(tempDirWithPrefix.toString() + SORTED_FILENAME);
         PrintWriter pw = new PrintWriter(fw);
 
         for (int i = 0; i < total; i++) {
@@ -82,7 +87,7 @@ public class FileSorter {
 
         pw.close();
         fw.close();
-
+        return tempDirWithPrefix.toString();
     }
 
     private void init(List<File> files) throws IOException {

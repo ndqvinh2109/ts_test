@@ -1,8 +1,7 @@
 package com.trustingsocial.assessment.service;
 
-import com.trustingsocial.assessment.PhoneNumberActivation;
 import com.trustingsocial.assessment.comparator.SortingStartDate;
-import com.trustingsocial.assessment.exception.ExternalSortingException;
+import com.trustingsocial.assessment.exception.ActivationPhoneNumberException;
 import com.trustingsocial.assessment.model.AppConfiguration;
 import com.trustingsocial.assessment.model.PhoneNumber;
 import com.trustingsocial.assessment.util.ConversionHelper;
@@ -23,8 +22,8 @@ public class PhoneNumberService {
 
     private static final Logger logger = LoggerFactory.getLogger(PhoneNumberService.class);
 
-    private String inputSortedFile;
     private String outputFinal;
+    private static final String SORTED_FILENAME = "sorted.txt";
 
     private int total; // total items
     private int buffer; // max items the memory buffer can hold
@@ -39,7 +38,6 @@ public class PhoneNumberService {
     }
 
     public PhoneNumberService(AppConfiguration appConfiguration) {
-        this.inputSortedFile = appConfiguration.getSortedFile();
         this.outputFinal = appConfiguration.getOutput();
         this.total = appConfiguration.getTotal();
         this.buffer = appConfiguration.getBuffer();
@@ -53,11 +51,11 @@ public class PhoneNumberService {
      *
      * @param files
      */
-    public void findActivePhoneNumber(List<File> files) {
+    public void findActivePhoneNumber(List<File> files, String sortedPath) {
 
         try {
-            Path path = Paths.get(inputSortedFile);
 
+            Path path = Paths.get(sortedPath + SORTED_FILENAME);
             try (BufferedReader br = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
 
                 int i, j;
@@ -107,19 +105,19 @@ public class PhoneNumberService {
                                     bw.newLine();
                                 }
                             } catch (IOException e) {
-                                throw new ExternalSortingException(e.getMessage(), e);
+                                throw new ActivationPhoneNumberException(e.getMessage(), e);
                             }
                         }
 
                     } catch (IOException e) {
-                        throw new ExternalSortingException(e.getMessage(), e);
+                        throw new ActivationPhoneNumberException(e.getMessage(), e);
                     }
 
                 }
             } catch (NoSuchFileException e) {
-                throw new ExternalSortingException("File not Found!", e);
+                throw new ActivationPhoneNumberException("File not Found!", e);
             } catch (Exception e) {
-                throw new ExternalSortingException("Unexpected error occured!", e);
+                throw new ActivationPhoneNumberException("Unexpected error occured!", e);
             }
             print();
 

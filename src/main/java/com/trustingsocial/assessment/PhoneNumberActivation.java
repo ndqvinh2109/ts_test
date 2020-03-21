@@ -28,10 +28,10 @@ public class PhoneNumberActivation {
             Map map = fileSplitter.split();
 
             FileSorter fileSorter = new FileSorter(appConfiguration);
-            fileSorter.sort(new ArrayList<>(map.values()));
+            String sortedPath = fileSorter.sort(new ArrayList<>(map.values()));
 
             PhoneNumberService phoneNumberService = new PhoneNumberService(appConfiguration);
-            phoneNumberService.findActivePhoneNumber(new ArrayList<>(map.values()));
+            phoneNumberService.findActivePhoneNumber(new ArrayList<>(map.values()), sortedPath);
 
 
         } catch (FileNotFoundException e) {

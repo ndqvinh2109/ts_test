@@ -57,15 +57,10 @@ public class FileSorterTest {
     public void testCompareAndMerge() throws IOException {
         writeFile();
         Map<String, File> files = fileSplitter.split();
-        fileSorter.sort(new ArrayList<>(files.values()));
+        String sorted = fileSorter.sort(new ArrayList<>(files.values()));
 
         assertThat(files, IsNull.notNullValue());
         assertThat(3, is(files.size()));
-        assertThat(files.keySet(), hasItem("C:\\Users\\fpt-vnguyend\\Desktop\\t\\test\\temp-file-0.txt"));
-
-        File aFile = new File("C:\\Users\\fpt-vnguyend\\Desktop\\t\\test\\", "sorted_file.txt");
-        assertThat(aFile.exists(), Is.is(Boolean.TRUE));
-        assertThat(aFile.length(), Is.is(286l));
 
     }
 

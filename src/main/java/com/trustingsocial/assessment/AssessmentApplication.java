@@ -25,13 +25,6 @@ public class AssessmentApplication implements CommandLineRunner {
     @Value("${ts.file.output}")
     private String output;
 
-    @Value("${ts.file.sorted_file}")
-    private String sortedFile;
-
-    @Value("${ts.file.temp_file}")
-    private String tempFile;
-
-
     private static final Logger logger = LoggerFactory.getLogger(AssessmentApplication.class);
 
     public static void main(String[] args) {
@@ -45,8 +38,6 @@ public class AssessmentApplication implements CommandLineRunner {
         appConfiguration.setBuffer(buffer);
         appConfiguration.setInput(input);
         appConfiguration.setOutput(output);
-        appConfiguration.setSortedFile(sortedFile);
-        appConfiguration.setTempFile(tempFile);
         return appConfiguration;
     }
 

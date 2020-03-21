@@ -53,7 +53,6 @@ public class FileSplitterTest {
 
         assertThat(files, IsNull.notNullValue());
         assertThat(3, is(files.size()));
-        assertThat(files.keySet(), hasItem("C:\\Users\\fpt-vnguyend\\Desktop\\t\\test\\temp-file-0.txt"));
     }
 
     private void writeFile() {

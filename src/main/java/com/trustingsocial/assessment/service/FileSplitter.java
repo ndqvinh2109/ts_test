@@ -1,7 +1,7 @@
 package com.trustingsocial.assessment.service;
 
 import com.trustingsocial.assessment.comparator.SortingPhoneNumber;
-import com.trustingsocial.assessment.exception.ExternalSortingException;
+import com.trustingsocial.assessment.exception.ActivationPhoneNumberException;
 import com.trustingsocial.assessment.model.AppConfiguration;
 import com.trustingsocial.assessment.model.PhoneNumber;
 import com.trustingsocial.assessment.util.ConversionHelper;
@@ -24,10 +24,10 @@ public class FileSplitter {
     private static final Logger logger = LoggerFactory.getLogger(FileSplitter.class);
 
     private String input;
-    private String tempFile;
     private int total; // total items
     private int bufferItem; // max items the memory buffer can hold
     private int slices;
+    private static final String TMP_FILENAME = "tempfile.txt";
 
     private static long count = 0;
     Map<String, File> returnedMap = new HashMap<>();
@@ -40,7 +40,6 @@ public class FileSplitter {
 
     public FileSplitter(AppConfiguration appConfiguration) {
         this.input = appConfiguration.getInput();
-        this.tempFile = appConfiguration.getTempFile();
         this.total = appConfiguration.getTotal();
         this.bufferItem = appConfiguration.getBuffer();
         this.slices = (int) Math.ceil((double) total / bufferItem);
@@ -81,7 +80,9 @@ public class FileSplitter {
                 // Sort elements of buffer O(buffer*log(buffer))
                 Arrays.sort(buffer, new SortingPhoneNumber());
 
-                String tempFilename = tempFile + Integer.toString(i) + ".txt";
+                Path tempDirWithPrefix = Files.createTempDirectory("temp");
+                String tempFilename = tempDirWithPrefix.toString() + TMP_FILENAME;
+
                 File temp = Paths.get(tempFilename).toFile();
 
                 // O(buffer)
@@ -93,16 +94,16 @@ public class FileSplitter {
                         }
                     }
                 } catch (IOException e) {
-                    throw new ExternalSortingException(e.getMessage(), e);
+                    throw new ActivationPhoneNumberException(e.getMessage(), e);
                 }
 
                 returnedMap.put(tempFilename, temp);
             }
 
         } catch (NoSuchFileException e) {
-            throw new ExternalSortingException("File not Found!", e);
+            throw new ActivationPhoneNumberException("File not Found!", e);
         } catch (Exception e) {
-            throw new ExternalSortingException("Unexpected error occured!", e);
+            throw new ActivationPhoneNumberException("Unexpected error occured!", e);
         }
 
         print();

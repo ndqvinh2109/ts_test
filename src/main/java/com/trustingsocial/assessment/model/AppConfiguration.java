@@ -6,8 +6,6 @@ public class AppConfiguration {
     private int buffer;
     private String input;
     private String output;
-    private String sortedFile;
-    private String tempFile;
 
     public int getTotal() {
         return total;
@@ -39,22 +37,6 @@ public class AppConfiguration {
 
     public void setOutput(String output) {
         this.output = output;
-    }
-
-    public String getSortedFile() {
-        return sortedFile;
-    }
-
-    public void setSortedFile(String sortedFile) {
-        this.sortedFile = sortedFile;
-    }
-
-    public String getTempFile() {
-        return tempFile;
-    }
-
-    public void setTempFile(String tempFile) {
-        this.tempFile = tempFile;
     }
 
 }
