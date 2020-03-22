@@ -1,7 +1,8 @@
-package com.trustingsocial.assignment.util;
+package com.trustingsocial.assignment.task1.util;
 
-import com.trustingsocial.assignment.model.PhoneNumber;
+import com.trustingsocial.assignment.task1.model.PhoneNumber;
 import static org.hamcrest.MatcherAssert.*;
+
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 

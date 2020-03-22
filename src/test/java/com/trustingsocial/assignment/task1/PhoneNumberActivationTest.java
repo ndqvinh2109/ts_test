@@ -1,9 +1,10 @@
-package com.trustingsocial.assignment.service;
+package com.trustingsocial.assignment.task1;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.*;
-
-import com.trustingsocial.assignment.model.AppConfiguration;
+import com.trustingsocial.assignment.task1.model.AppConfiguration;
+import com.trustingsocial.assignment.task1.service.FileSorter;
+import com.trustingsocial.assignment.task1.service.FileSplitter;
+import com.trustingsocial.assignment.task1.service.PhoneNumberService;
+import org.hamcrest.core.Is;
 import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,25 +20,35 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class FileSplitterTest {
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
+public class PhoneNumberActivationTest {
+
+    private FileSorter fileSorter;
     private FileSplitter fileSplitter;
+    private PhoneNumberService phoneNumberService;
     private AppConfiguration appConfiguration;
-    private Path tempDirWithPrefix;
 
     private String testFilename = "test.txt";
+    private String activationNumberName = "activation_number.txt";
+    private Path tempDirWithPrefix;
     private Map<String, File> files;
-
 
     @BeforeEach
     public void setUp() throws IOException {
+
         tempDirWithPrefix = Files.createTempDirectory("temp");
         appConfiguration = new AppConfiguration();
+        appConfiguration.setInput(tempDirWithPrefix.toString() + File.separator + testFilename);
         appConfiguration.setTotal(9);
         appConfiguration.setBuffer(3);
-        appConfiguration.setInput(tempDirWithPrefix.toString() + File.separator + testFilename);
+        appConfiguration.setOutput(tempDirWithPrefix.toString() + File.separator + activationNumberName);
 
+        fileSorter = new FileSorter(appConfiguration);
         fileSplitter = new FileSplitter(appConfiguration);
+        phoneNumberService = new PhoneNumberService(appConfiguration);
     }
 
     @AfterEach
@@ -50,16 +61,21 @@ public class FileSplitterTest {
         for (File file : new ArrayList<>(files.values())) {
             file.delete();
         }
-
     }
 
     @Test
-    public void testSplit() throws IOException {
+    public void testCompareAndMerge() throws IOException {
         writeFile();
         files = fileSplitter.split();
+        String sortedPath = fileSorter.sort(new ArrayList<>(files.values()));
+        phoneNumberService.findActivePhoneNumber(new ArrayList<>(files.values()), sortedPath);
 
         assertThat(files, IsNull.notNullValue());
         assertThat(3, is(files.size()));
+
+        File file = new File(sortedPath + File.separator + "sorted.txt");
+        assertThat(file.exists(), Is.is(Boolean.TRUE));
+
     }
 
     private void writeFile() {
@@ -75,7 +91,6 @@ public class FileSplitterTest {
                 "0987000001,2016-06-01,2016-09-01";
 
         File file = Paths.get(tempDirWithPrefix.toString(), testFilename).toFile();
-        System.out.println(file.getAbsolutePath());
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, false))) {
             bw.write(fileContent);
             bw.newLine();

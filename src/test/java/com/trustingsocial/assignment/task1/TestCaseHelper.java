@@ -1,6 +1,6 @@
-package com.trustingsocial.assignment;
+package com.trustingsocial.assignment.task1;
 
-import com.trustingsocial.assignment.model.PhoneNumber;
+import com.trustingsocial.assignment.task1.model.PhoneNumber;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.trustingsocial.assignment.service;
+package com.trustingsocial.assignment.task1.service;
 
-import com.trustingsocial.assignment.model.AppConfiguration;
-import com.trustingsocial.assignment.model.PhoneNumber;
-import com.trustingsocial.assignment.util.ConversionHelper;
-import com.trustingsocial.assignment.util.TimeMetric;
+import com.trustingsocial.assignment.task1.model.AppConfiguration;
+import com.trustingsocial.assignment.task1.model.PhoneNumber;
+import com.trustingsocial.assignment.task1.util.ConversionHelper;
+import com.trustingsocial.assignment.task1.util.TimeMetric;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

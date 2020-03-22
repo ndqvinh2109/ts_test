@@ -1,6 +1,6 @@
-package com.trustingsocial.assignment.service;
+package com.trustingsocial.assignment.task1.service;
 
-import com.trustingsocial.assignment.model.AppConfiguration;
+import com.trustingsocial.assignment.task1.model.AppConfiguration;
 import org.hamcrest.core.Is;
 import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.AfterEach;

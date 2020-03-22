@@ -1,4 +1,4 @@
-package com.trustingsocial.assignment.util;
+package com.trustingsocial.assignment.task1.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

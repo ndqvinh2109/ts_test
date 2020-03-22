@@ -1,6 +1,6 @@
-package com.trustingsocial.assignment.util;
+package com.trustingsocial.assignment.task1.util;
 
-import com.trustingsocial.assignment.model.PhoneNumber;
+import com.trustingsocial.assignment.task1.model.PhoneNumber;
 
 public class ConversionHelper {
 
