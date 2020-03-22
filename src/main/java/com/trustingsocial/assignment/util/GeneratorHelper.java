@@ -1,4 +1,4 @@
-package com.trustingsocial.assessment.util;
+package com.trustingsocial.assignment.util;
 
 import java.io.FileWriter;
 import java.io.IOException;

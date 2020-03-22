@@ -1,6 +1,6 @@
-package com.trustingsocial.assessment.service;
+package com.trustingsocial.assignment.service;
 
-import com.trustingsocial.assessment.model.AppConfiguration;
+import com.trustingsocial.assignment.model.AppConfiguration;
 import org.hamcrest.core.Is;
 import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.AfterEach;

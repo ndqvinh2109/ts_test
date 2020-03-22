@@ -1,11 +1,11 @@
-package com.trustingsocial.assessment.service;
+package com.trustingsocial.assignment.service;
 
-import com.trustingsocial.assessment.comparator.SortingPhoneNumber;
-import com.trustingsocial.assessment.exception.ActivationPhoneNumberException;
-import com.trustingsocial.assessment.model.AppConfiguration;
-import com.trustingsocial.assessment.model.PhoneNumber;
-import com.trustingsocial.assessment.util.ConversionHelper;
-import com.trustingsocial.assessment.util.TimeMetric;
+import com.trustingsocial.assignment.comparator.SortingPhoneNumber;
+import com.trustingsocial.assignment.exception.ActivationPhoneNumberException;
+import com.trustingsocial.assignment.model.AppConfiguration;
+import com.trustingsocial.assignment.model.PhoneNumber;
+import com.trustingsocial.assignment.util.ConversionHelper;
+import com.trustingsocial.assignment.util.TimeMetric;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

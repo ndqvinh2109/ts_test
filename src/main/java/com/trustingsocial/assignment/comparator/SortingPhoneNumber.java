@@ -1,6 +1,6 @@
-package com.trustingsocial.assessment.comparator;
+package com.trustingsocial.assignment.comparator;
 
-import com.trustingsocial.assessment.model.PhoneNumber;
+import com.trustingsocial.assignment.model.PhoneNumber;
 
 import java.util.Comparator;
 

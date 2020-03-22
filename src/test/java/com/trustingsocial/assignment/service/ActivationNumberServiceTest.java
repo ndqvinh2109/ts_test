@@ -1,9 +1,9 @@
-package com.trustingsocial.assessment.service;
+package com.trustingsocial.assignment.service;
 
-import com.trustingsocial.assessment.TestCaseHelper;
-import com.trustingsocial.assessment.comparator.SortingPhoneNumber;
-import com.trustingsocial.assessment.comparator.SortingStartDate;
-import com.trustingsocial.assessment.model.PhoneNumber;
+import com.trustingsocial.assignment.TestCaseHelper;
+import com.trustingsocial.assignment.comparator.SortingPhoneNumber;
+import com.trustingsocial.assignment.comparator.SortingStartDate;
+import com.trustingsocial.assignment.model.PhoneNumber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

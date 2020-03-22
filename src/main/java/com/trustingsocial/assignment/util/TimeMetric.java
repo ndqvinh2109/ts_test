@@ -1,6 +1,5 @@
-package com.trustingsocial.assessment.util;
+package com.trustingsocial.assignment.util;
 
-import com.trustingsocial.assessment.AssessmentApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

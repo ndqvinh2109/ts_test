@@ -1,12 +1,11 @@
-package com.trustingsocial.assessment.service;
+package com.trustingsocial.assignment.service;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
-import com.trustingsocial.assessment.model.AppConfiguration;
+import com.trustingsocial.assignment.model.AppConfiguration;
 import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

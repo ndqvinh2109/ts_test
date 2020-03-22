@@ -1,4 +1,4 @@
-package com.trustingsocial.assessment.model;
+package com.trustingsocial.assignment.model;
 
 public class AppConfiguration {
 

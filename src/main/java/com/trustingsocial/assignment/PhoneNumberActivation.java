@@ -1,10 +1,10 @@
-package com.trustingsocial.assessment;
+package com.trustingsocial.assignment;
 
-import com.trustingsocial.assessment.model.AppConfiguration;
-import com.trustingsocial.assessment.service.FileSorter;
-import com.trustingsocial.assessment.service.FileSplitter;
-import com.trustingsocial.assessment.service.PhoneNumberService;
-import com.trustingsocial.assessment.util.TimeMetric;
+import com.trustingsocial.assignment.model.AppConfiguration;
+import com.trustingsocial.assignment.service.FileSorter;
+import com.trustingsocial.assignment.service.FileSplitter;
+import com.trustingsocial.assignment.service.PhoneNumberService;
+import com.trustingsocial.assignment.util.TimeMetric;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

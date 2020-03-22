@@ -1,11 +1,9 @@
-package com.trustingsocial.assessment.comparator;
+package com.trustingsocial.assignment.comparator;
 
-import com.trustingsocial.assessment.TestCaseHelper;
-import com.trustingsocial.assessment.model.PhoneNumber;
-import org.hamcrest.CoreMatchers;
+import com.trustingsocial.assignment.TestCaseHelper;
+import com.trustingsocial.assignment.model.PhoneNumber;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.collection.IsIterableContainingInOrder;
-import org.hamcrest.core.IsIterableContaining;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;

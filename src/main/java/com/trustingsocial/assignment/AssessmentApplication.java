@@ -1,6 +1,6 @@
-package com.trustingsocial.assessment;
+package com.trustingsocial.assignment;
 
-import com.trustingsocial.assessment.model.AppConfiguration;
+import com.trustingsocial.assignment.model.AppConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

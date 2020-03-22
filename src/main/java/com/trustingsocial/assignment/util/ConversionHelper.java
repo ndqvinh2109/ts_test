@@ -1,6 +1,6 @@
-package com.trustingsocial.assessment.util;
+package com.trustingsocial.assignment.util;
 
-import com.trustingsocial.assessment.model.PhoneNumber;
+import com.trustingsocial.assignment.model.PhoneNumber;
 
 public class ConversionHelper {
 
