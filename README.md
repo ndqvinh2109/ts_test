@@ -28,8 +28,7 @@ map storing grouping by phone number => 0(m)
 * Spring boot
 
 ### Build and Run
-* mvn clean package
-* jar -jar assessment-0.0.1-SNAPSHOT.jar --ts.file.total=1000 --ts.file.buffer=200 --ts.file.input=pathInputFile --ts.file.output=pathOutputFile<br>
+* mvn clean package spring-boot:run -Dspring-boot.run.arguments="--ts.file.total=1000 --ts.file.buffer=200 --ts.file.input=pathInputFile --ts.file.output=pathOutputFile"<br>
 
 <code>ts.file.total</code>: Total line of input file by default: 50000000<br>
 <code>ts.file.buffer</code>: Maximum buffer items by default 1000000<br>
