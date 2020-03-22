@@ -1,6 +1,7 @@
 # Trusting social test
 
-## Task 1 to sort the input phone number file and output file where all the actual activation date of phone number are found.
+## Task 1
+Sort the input phone number file and output file where all the actual activation date of phone number are found.
 
 ### The implementation approach
 
