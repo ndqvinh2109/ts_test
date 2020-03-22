@@ -1,5 +1,6 @@
 package com.trustingsocial.assignment.task1;
 
+import com.trustingsocial.assignment.task1.exception.ActivationPhoneNumberException;
 import com.trustingsocial.assignment.task1.model.AppConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
+import sun.rmi.server.Activation;
+
+import java.io.File;
 
 @SpringBootApplication
 @Configuration
@@ -49,10 +53,19 @@ public class AssessmentApplication implements CommandLineRunner {
         logger.info("Output file path: " + output);
         logger.info("Buffer items: " + buffer);
 
+        validate();
+
         logger.info("EXECUTING : command line runner");
 
         PhoneNumberActivation.findActualActivationDate(appConfiguration());
     }
+
+    private void validate() {
+        PhoneNumberActivation.isValid(input);
+        PhoneNumberActivation.isValid(output);
+    }
+
+
 
 
 }

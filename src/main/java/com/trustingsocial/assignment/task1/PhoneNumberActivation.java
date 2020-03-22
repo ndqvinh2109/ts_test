@@ -1,5 +1,6 @@
 package com.trustingsocial.assignment.task1;
 
+import com.trustingsocial.assignment.task1.exception.ActivationPhoneNumberException;
 import com.trustingsocial.assignment.task1.model.AppConfiguration;
 import com.trustingsocial.assignment.task1.service.FileSorter;
 import com.trustingsocial.assignment.task1.service.FileSplitter;
@@ -48,6 +49,13 @@ public class PhoneNumberActivation {
         timeMetric.print();
         logger.info("----------------------Successfully executed!--------------------");
 
+    }
+
+    public static void isValid(String file) {
+        File input = new File(file);
+        if (!input.exists()) {
+            throw new ActivationPhoneNumberException("The file do not exist. Path: " + input.getAbsolutePath(), null);
+        }
     }
 
     private static void deleteFiles(List<File> fileList) {

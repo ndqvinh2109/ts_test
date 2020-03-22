@@ -62,13 +62,16 @@ public class PhoneNumberService {
                 int i, j;
                 i = j = 0;
 
-                // Iterate through the elements in the file
 
+                Files.deleteIfExists(Paths.get(outputFinal));
+                File outputFile = Paths.get(outputFinal).toFile();
+
+                // Iterate through the elements in the file
                 for (i = 0; i < files.size(); i++) {
-                    // Read M-element chunk at a time from the file
                     List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
                     // O (buffer)
+                    // Read M-element chunk at a time from the file
                     for (j = 0; j < (buffer < total ? buffer : total); j++) {
                         String t = br.readLine();
 
@@ -81,8 +84,6 @@ public class PhoneNumberService {
                     }
 
                     Map<String, List<PhoneNumber>> map = groupingByPhoneNumber(phoneNumbers);
-
-                    File outputFile = Paths.get(outputFinal).toFile();
 
                     // O(t)
                     for (Map.Entry<String, List<PhoneNumber>> t : map.entrySet()) {
