@@ -1,6 +1,6 @@
 # Trusting social test
 
-This is first test to sort the input phone number file and output file where all the actual activation date of phone number are found.
+## Task 1 to sort the input phone number file and output file where all the actual activation date of phone number are found.
 
 ### The implementation approach
 
@@ -45,3 +45,8 @@ map storing grouping by phone number => 0(m)
 [main] c.t.assessment.util.TimeMetric           : Find the actual activation date took 249666 ms. <br>
 [main] c.t.assessment.PhoneNumberActivation     : ----------------------Successfully executed!-------------------- <br>
 
+## Task 2
+Design a ecommercial system and real time feedback
+
+File location: <code>com.trustingsocial.assignment.task2</code>
+File name: <code>ts_task2.docx</code>
